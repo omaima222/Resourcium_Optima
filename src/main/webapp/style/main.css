@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+.container {
+  width: 60vw;
+  border-radius: 2px;
+}
+
+.auth-body {
+  background-color: #041C32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container .content {
+  display: flex;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 2px;
+}
+.container .page-title {
+  color: #DAC0A3;
+  font-family: "Nova Mono", monospace;
+  font-size: 18px;
+  font-weight: 400;
+  align-self: flex-end;
+  padding: 5px;
+  padding-right: 20px;
+}
+.container .app-name {
+  color: #F56038;
+  font-family: "Nova Mono", monospace;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 5px;
+  padding-left: 20px;
+}
+
+.motto-container {
+  border-radius: 2px 0 0 2px;
+  width: 50%;
+  background-color: #F56038;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.motto-container h1 {
+  color: #041C32;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.form-container {
+  border-radius: 0 2px 2px 0;
+  width: 50%;
+  background-color: #DAC0A3;
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+}
+.form-container div {
+  display: flex;
+}
+.form-container div h1 {
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+}
+.form-container div a {
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.form-container div a:hover {
+  color: #F56038;
+}
+.form-container form {
+  margin-top: 5rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.form-container form input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #041C32;
+  margin-bottom: 6rem;
+  padding: 5px;
+  font-size: 1rem;
+}
+.form-container form button {
+  width: 100%;
+  background-color: #041C32;
+  border-radius: 2px;
+  border: 2px solid transparent;
+  color: #f7bc25;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.form-container form button:hover {
+  background-color: #f7bc25;
+  color: #041C32;
+  border: 2px solid #041C32;
+}
+
+.signup {
+  justify-content: center;
+}
+.signup form {
+  margin: 0;
+}
+
+/*# sourceMappingURL=main.css.map */
