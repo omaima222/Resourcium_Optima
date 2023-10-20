@@ -1,11 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Youcode
-  Date: 17/10/2023
-  Time: 08:39
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
+<%@page import="controllers.EmployeeServlet" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,11 +16,11 @@
             <h1>We mange<br>You<br>thrive</h1>
         </div>
         <div class="form-container signup">
-            <form>
-                <input type="text" placeholder="Username">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>SUBMIT</button>
+            <form method="post" action="EmployeeServlet" >
+                <input name="username" type="text" placeholder="Username" required>
+                <input name="email" type="email" placeholder="Email" required>
+                <input name="password" minlength="8" type="password" placeholder="Password" required>
+                <button type="submit">SUBMIT</button>
             </form>
         </div>
     </div>

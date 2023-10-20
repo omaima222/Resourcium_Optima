@@ -14,7 +14,6 @@ public class HelloServlet extends HttpServlet {
         EntityManager entityManager =entityManagerFactory.createEntityManager();
         entityManager.close();
         entityManagerFactory.close();
-        System.out.println("done");
         message = "The Tables Created Successfully";
     }
 

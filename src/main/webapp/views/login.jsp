@@ -21,12 +21,15 @@
         <div class="form-container">
             <div>
                 <h1>Don’t have an account ? </h1>
-                <a href="signup.jsp">SIGN UP</a>
+                <a href="/views/signup.jsp">SIGN UP</a>
             </div>
-            <form>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>SUBMIT</button>
+            <form method="post" action="EmployeeServlet">
+                <input name="email" type="email" placeholder="Email" value="${sessionScope.email}" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">SUBMIT</button>
+                <div class="error" >
+                    ${sessionScope.error}
+                </div>
             </form>
         </div>
     </div>
