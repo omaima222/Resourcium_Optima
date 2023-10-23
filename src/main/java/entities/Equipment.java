@@ -15,16 +15,19 @@ public class Equipment {
     private String name;
 
     @Column(name = "type")
-    private String type;
+    private EquiType type;
 
     @Column(name = "state")
-    private String state;
+    private EquiState state;
 
     @Column(name = "buying_date")
     private Date buyingDate;
 
     @Column(name = "maint_date")
     private Date maintDate;
+
+    @OneToOne( mappedBy = "equipement")
+    private Reservation reservation;
 
     public long getId() {
         return id;
@@ -42,19 +45,19 @@ public class Equipment {
         this.name = name;
     }
 
-    public String getType() {
+    public EquiType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(EquiType type) {
         this.type = type;
     }
 
-    public String getState() {
+    public EquiState getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(EquiState state) {
         this.state = state;
     }
 
@@ -74,4 +77,11 @@ public class Equipment {
         this.maintDate = maintDate;
     }
 
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
 }

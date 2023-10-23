@@ -21,10 +21,10 @@ public class Task{
     private Date limitDate;
 
     @Column(name = "priority")
-    private String priority;
+    private TaskPriority priority;
 
     @Column(name = "status")
-    private String status;
+    private TaskStatus status;
 
     @ManyToOne
     @JoinColumn(name = "assigned_employee")
@@ -62,19 +62,19 @@ public class Task{
         this.limitDate = limitDate;
     }
 
-    public String getPriority() {
+    public TaskPriority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(TaskPriority priority) {
         this.priority = priority;
     }
 
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 

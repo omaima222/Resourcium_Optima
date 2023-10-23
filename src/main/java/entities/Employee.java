@@ -27,14 +27,17 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "position")
-    private String position;
-
     @Column(name = "rec_date")
     private Date recDate;
 
+    @Column(name = "role")
+    private Role role;
+
     @OneToMany(mappedBy = "assigned_employee")
     private List<Task> tasks;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Reservation> reservations;
 
     public long getId() {
         return id;
@@ -84,14 +87,6 @@ public class Employee {
         this.email = email;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     public Date getRecDate() {
         return recDate;
     }
@@ -100,9 +95,26 @@ public class Employee {
         this.recDate = recDate;
     }
 
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public void setTasks(List<Task> tasks){ this.tasks=tasks; }
 
     public List<Task> getTasks(){ return this.tasks; }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 
     @Override
     public String toString() {
@@ -113,7 +125,6 @@ public class Employee {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", position='" + position + '\'' +
                 ", recDate=" + recDate +
                 ", tasks=" + tasks +
                 '}';
