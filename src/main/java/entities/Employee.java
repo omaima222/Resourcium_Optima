@@ -104,4 +104,18 @@ public class Employee {
 
     public List<Task> getTasks(){ return this.tasks; }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", position='" + position + '\'' +
+                ", recDate=" + recDate +
+                ", tasks=" + tasks +
+                '}';
+    }
 }

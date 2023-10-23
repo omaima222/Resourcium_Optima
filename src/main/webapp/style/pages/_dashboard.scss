@@ -4,3 +4,30 @@
   display: flex;
 }
 
+.dashContent{
+  width: 80vw;
+  height: 100vh;
+  padding: 1rem 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .content-wrap{
+    margin-top: -2rem;
+  }
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+      margin-bottom: 1rem;
+      font-weight: 400;
+      font-size: 2.5rem;
+      color: $blue;
+    }
+  }
+  .content{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}

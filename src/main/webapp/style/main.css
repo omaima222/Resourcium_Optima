@@ -15,6 +15,10 @@ body {
   border-radius: 2px;
 }
 
+button {
+  cursor: pointer;
+}
+
 .sideBar {
   background-color: #04192d;
   width: 15vw;
@@ -29,6 +33,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  margin-top: 3rem;
 }
 .userSide .pfp {
   width: 65px;
@@ -64,6 +69,58 @@ body {
 .menu button:hover {
   background-color: #021626;
   color: #f7bc25;
+}
+
+.hover {
+  background-color: #021626 !important;
+  color: #f7bc25 !important;
+}
+
+.searchBar {
+  display: none;
+}
+.searchBar form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.searchBar input {
+  background-color: transparent;
+  border: 3px solid #04192d;
+  height: 36px;
+  width: 18rem;
+  border-radius: 4px 0px 0px 4px;
+  border-right: none;
+  padding: 8px;
+}
+.searchBar button {
+  border: 3px solid #04192d;
+  border-radius: 0px 4px 4px 0px;
+  padding: 4px;
+  background-color: transparent;
+}
+.searchBar button img {
+  width: 23px;
+}
+
+.bar {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.bar button {
+  margin-left: 2rem;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  transition: 0.5s;
+  border: 3px solid transparent;
+  font-weight: 300;
+}
+.bar button:hover {
+  border-bottom: 3px solid black;
 }
 
 .auth-body {
@@ -130,12 +187,15 @@ body {
   font-size: 15px;
   font-family: "Nunito", sans-serif;
   font-weight: 300;
+  color: #04192d;
 }
 .form-container div a {
   font-size: 15px;
   font-family: "Nunito", sans-serif;
   margin-left: 10px;
   cursor: pointer;
+  text-decoration: none;
+  color: #04192d;
 }
 .form-container div a:hover {
   color: #F56038;
@@ -188,6 +248,120 @@ body {
 .dashBody {
   background-color: #DAC0A3;
   display: flex;
+}
+
+.dashContent {
+  width: 80vw;
+  height: 100vh;
+  padding: 1rem 3rem 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.dashContent .content-wrap {
+  margin-top: -2rem;
+}
+.dashContent .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashContent .header h1 {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: #04192d;
+}
+.dashContent .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+.tasks .title {
+  width: 100%;
+  height: 2rem;
+  background-color: #04192d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px 6px 0px 0px;
+}
+.tasks .title h1 {
+  font-size: 1.5rem;
+  color: #F56038;
+  font-family: "Nova Mono", monospace;
+  font-weight: 400;
+}
+.tasks .task {
+  width: 100%;
+  height: 7rem;
+  background-color: #F8F0E5;
+  margin-top: 4px;
+  padding: 10px;
+  word-wrap: break-word;
+}
+.tasks .task h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.tasks .task p {
+  font-size: 15px;
+  color: #767171;
+}
+.tasks .task:last-of-type {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.equipements {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  background-color: #F8F0E5;
+  border-collapse: collapse;
+  border-radius: 7px;
+  overflow: hidden;
+}
+table .tableHead {
+  background-color: #04192d;
+  border-radius: 0px 0px 5px 5px;
+}
+table tr {
+  border-bottom: 3px solid #DAC0A3;
+}
+table th {
+  font-size: 1.5rem;
+  color: #F56038;
+  font-family: "Nova Mono", monospace;
+  font-weight: 400;
+}
+table th, table td {
+  border: none;
+  padding: 15px;
+  text-align: left;
+}
+table button {
+  padding: 8px;
+  background-color: #F56038;
+  color: #F8F0E5;
+  border-radius: 3px;
+  border: none;
+  width: 6rem;
+  font-weight: 100;
+  float: inline-end;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -17,7 +17,6 @@ public class EmployeeDAO {
     public Employee findByEmail(String email){
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager em = emf.createEntityManager();
-        System.out.println(email);
         String q = "SELECT e FROM Employee e where e.email = :email";
         TypedQuery<Employee> query = em.createQuery(q, Employee.class);
         query.setParameter("email", email);
@@ -28,4 +27,16 @@ public class EmployeeDAO {
         }
     }
 
+    public Employee findById(Integer id){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em = emf.createEntityManager();
+        String q = "SELECT e FROM Employee e where e.id = :id";
+        TypedQuery<Employee> query = em.createQuery(q, Employee.class);
+        query.setParameter("id", id);
+        try{
+            return query.getSingleResult();
+        }catch (NoResultException e){
+            return null;
+        }
+    }
 }

@@ -67,12 +67,15 @@
       font-size: 15px;
       font-family: $text-font;
       font-weight: 300;
+      color: $blue;
     }
     a{
       font-size: 15px;
       font-family: $text-font;
       margin-left: 10px;
       cursor: pointer;
+      text-decoration: none;
+      color: $blue;
       &:hover{
         color: $orange;
       }

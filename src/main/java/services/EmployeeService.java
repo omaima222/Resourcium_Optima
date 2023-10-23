@@ -24,7 +24,6 @@ public class EmployeeService {
         else{
             if (BCrypt.checkpw(password, employee.getPassword())) {
                 session.setAttribute("userId", employee.getId());
-                System.out.println(session.getAttribute("userId"));
                 return true;
             } else {
                 session.setAttribute("error", "⚠ incorrect password !");
