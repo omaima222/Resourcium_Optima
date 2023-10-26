@@ -14,7 +14,17 @@ public class EmployeeDAO {
         emf.close();
     }
 
-    public Employee findByEmail(String email){
+    public void delete(Employee employee) {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.remove(employee);
+        em.getTransaction().commit();
+        em.close();
+        emf.close();
+    }
+
+    public Employee findByEmail(String email) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager em = emf.createEntityManager();
         String q = "SELECT e FROM Employee e where e.email = :email";
@@ -27,7 +37,7 @@ public class EmployeeDAO {
         }
     }
 
-    public Employee findById(Integer id){
+    public Employee findById(Long id) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
         EntityManager em = emf.createEntityManager();
         String q = "SELECT e FROM Employee e where e.id = :id";
@@ -39,4 +49,5 @@ public class EmployeeDAO {
             return null;
         }
     }
+
 }

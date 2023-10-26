@@ -5,6 +5,8 @@ import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.persistence.*;
+import repositories.ReservationDAO;
+
 @WebServlet(name = "helloServlet", value = "/hello-servlet", loadOnStartup = 1)
 public class HelloServlet extends HttpServlet {
     private String message;

@@ -103,6 +103,42 @@ button {
   width: 23px;
 }
 
+table {
+  width: 100%;
+  background-color: #F8F0E5;
+  border-collapse: collapse;
+  border-radius: 7px;
+  overflow: hidden;
+}
+table .tableHead {
+  background-color: #04192d;
+  border-radius: 0px 0px 5px 5px;
+}
+table tr {
+  border-bottom: 3px solid #DAC0A3;
+}
+table th {
+  font-size: 1.5rem;
+  color: #F56038;
+  font-family: "Nova Mono", monospace;
+  font-weight: 400;
+}
+table th, table td {
+  border: none;
+  padding: 15px;
+  text-align: left;
+}
+table button {
+  padding: 8px;
+  background-color: #F56038;
+  color: #F8F0E5;
+  border-radius: 3px;
+  border: none;
+  width: 6rem;
+  font-weight: 100;
+  float: inline-end;
+}
+
 .bar {
   margin-bottom: 3rem;
   display: flex;
@@ -317,8 +353,22 @@ button {
   font-size: 15px;
   color: #767171;
 }
+.tasks .task .priority {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  float: right;
+  margin-top: 44px;
+}
 .tasks .task:last-of-type {
   border-radius: 0px 0px 6px 6px;
+}
+
+.reservations {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .equipements {
@@ -326,42 +376,6 @@ button {
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-
-table {
-  width: 100%;
-  background-color: #F8F0E5;
-  border-collapse: collapse;
-  border-radius: 7px;
-  overflow: hidden;
-}
-table .tableHead {
-  background-color: #04192d;
-  border-radius: 0px 0px 5px 5px;
-}
-table tr {
-  border-bottom: 3px solid #DAC0A3;
-}
-table th {
-  font-size: 1.5rem;
-  color: #F56038;
-  font-family: "Nova Mono", monospace;
-  font-weight: 400;
-}
-table th, table td {
-  border: none;
-  padding: 15px;
-  text-align: left;
-}
-table button {
-  padding: 8px;
-  background-color: #F56038;
-  color: #F8F0E5;
-  border-radius: 3px;
-  border: none;
-  width: 6rem;
-  font-weight: 100;
-  float: inline-end;
 }
 
 /*# sourceMappingURL=main.css.map */

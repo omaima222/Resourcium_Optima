@@ -37,6 +37,13 @@
       font-size: 15px;
       color: #767171;
     }
+    .priority{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      float: right;
+      margin-top: 44px;
+    }
   }
   .task:last-of-type{
     border-radius: 0px 0px 6px 6px;

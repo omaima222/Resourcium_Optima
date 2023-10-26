@@ -10,22 +10,18 @@ public class Equipment {
     @Id
     @Column(name = "id")
     private long id;
-
     @Column(name = "name")
     private String name;
-
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
     private EquiType type;
-
+    @Enumerated(EnumType.STRING)
     @Column(name = "state")
     private EquiState state;
-
     @Column(name = "buying_date")
     private Date buyingDate;
-
     @Column(name = "maint_date")
     private Date maintDate;
-
     @OneToOne( mappedBy = "equipement")
     private Reservation reservation;
 

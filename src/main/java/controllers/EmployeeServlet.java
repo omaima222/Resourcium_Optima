@@ -18,7 +18,7 @@ public class EmployeeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Integer userId = (Integer) session.getAttribute("userId");
+        Long userId = (Long) session.getAttribute("userId");
         if(employeeService.checkIfLogged(session)) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             RequestDispatcher dispatcher = request.getRequestDispatcher("views/login.jsp");

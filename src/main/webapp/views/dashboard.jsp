@@ -1,11 +1,16 @@
-
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.stream.Collectors" %>
+<%@ page import="entities.*" %>
+<%@ page import="services.ReservationService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body class="dashBody">
+
    <div class="sideBar">
        <div class="userSide">
            <div class="pfp"></div>
@@ -37,28 +42,60 @@
                    <div class="title">
                        <h1>TO DO</h1>
                    </div>
+                   <%List<Task> tasks = (List<Task>) request.getAttribute("tasks");
+                       List<Task> todoTasks = (tasks==null)?null:tasks.stream().filter(x -> x.getStatus().equals(TaskStatus.TODO)).collect(Collectors.toList());
+                       List<Task> inprogressTasks = (tasks==null)?null:tasks.stream().filter(x -> x.getStatus().equals(TaskStatus.INPROGRESS)).collect(Collectors.toList());
+                       List<Task> doneTasks = (tasks==null)?null:tasks.stream().filter(x -> x.getStatus().equals(TaskStatus.DONE)).collect(Collectors.toList());
+                     if(todoTasks == null){
+                   %>
+                       <div class="task">
+                           <h2>No tasks ... </h2>
+                       </div>
+                   <% } else
+                       for (Task task : todoTasks) {
+                   %>
                    <div class="task">
-                       <h2>task name</h2>
-                       <p>task description</p>
+                       <h2><%= task.getName() %></h2>
+                       <p><%= task.getDescription() %></p>
+                       <div class="priority" priority(<%=task.getPriority()%>, 0)></div>
                    </div>
+                   <%}%>
                </div>
                <div class="tasks">
                    <div class="title">
                        <h1>IN PROGRESS</h1>
                    </div>
+                   <%if(inprogressTasks == null){%>
                    <div class="task">
-                       <h2>task name</h2>
-                       <p>task description</p>
+                       <h2>No tasks ... </h2>
                    </div>
+                   <% } else
+                       for (Task task : inprogressTasks) {
+                   %>
+                   <div class="task">
+                       <h2><%= task.getName() %></h2>
+                       <p><%= task.getDescription() %></p>
+                       <div class="priority" priority(<%=task.getPriority()%>, 1)></div>
+                   </div>
+                   <%}%>
                </div>
                <div class="tasks">
                    <div class="title">
                        <h1>DONE</h1>
                    </div>
+                   <%if(doneTasks == null){%>
                    <div class="task">
-                       <h2>task name</h2>
-                       <p>task description</p>
+                       <h2>No tasks ... </h2>
                    </div>
+                   <%}else
+                       for (Task task : doneTasks){
+                   %>
+                   <div class="task">
+                       <h2><%= task.getName() %></h2>
+                       <p><%= task.getDescription() %></p>
+                       <div class="priority" priority(<%=task.getPriority()%>, 2)  ></div>
+                   </div>
+                   <%}%>
                </div>
                <div class="equipements" id="equipements">
                  <table>
@@ -69,23 +106,49 @@
                          <th>STATE</th>
                          <th></th>
                      </tr>
+                     <%  List<Equipment> equipments = (List<Equipment>)  request.getAttribute("equipments");
+                         if(equipments!=null){
+                         for (Equipment equipment : equipments  ){
+                     %>
                      <tr>
-                         <td>chi id</td>
-                         <td>chi name</td>
-                         <td>chi type</td>
-                         <td>chi state</td>
-                         <td><button>RESERVE</button></td>
+                         <td><%= equipment.getId() %></td>
+                         <td><%= equipment.getName() %></td>
+                         <td><%= equipment.getType() %></td>
+                         <td><%= equipment.getState() %></td>
+                         <% if(equipment.getState().equals(EquiState.AVAILABLE)){
+                         %>
+                           <td><button>RESERVE</button></td>
+                         <%} else{%>
+                         <td><%= equipment.getReservation().getReturn_date() %></td>
                      </tr>
-                     <tr>
-                         <td>chi id</td>
-                         <td>chi name</td>
-                         <td>chi type</td>
-                         <td>chi state</td>
-                         <td><button>RESERVE</button></td>
-                     </tr>
+                     <%}}}%>
                  </table>
                </div>
                <div class="reservations" id="reservations">
+                   <table>
+                       <tr class="tableHead">
+                           <th>ID</th>
+                           <th>RESERVED AT</th>
+                           <th>RETURN AT</th>
+                           <th>NAME</th>
+                           <th>TYPE</th>
+                           <th></th>
+                       </tr>
+                       <%  List<Reservation> reservations = (List<Reservation>)  request.getAttribute("reservations");
+                           if(reservations!=null){
+                               for (Reservation reservation : reservations  ){
+                       %>
+                       <tr>
+                           <td><%= reservation.getId() %></td>
+                           <td><%= reservation.getStart_date() %></td>
+                           <td><%= reservation.getReturn_date() %></td>
+                           <td><%= reservation.getEquipement().getName() %></td>
+                           <td><%= reservation.getEquipement().getType() %></td>
+                           <td><button>RETURN</button></td>
+                       </tr>
+                       <%}}%>
+                   </table>
+
                </div>
            </div>
        </div>
@@ -140,4 +203,12 @@
         searchBar.style.display = 'flex';
         headerTitle.innerText = "Reservations"
     }
+
+    function priority(taskPriority, index){
+        let priorityCircle = document.getElementsByClassName("priority");
+        if (taskPriority == "MAJOR") priorityCircle[index].style.backgroundColor = "#a1131b"
+        else if (taskPriority == "MEDIUM") priorityCircle[index].style.backgroundColor = "#e89436"
+        else if (taskPriority == "LOW") priorityCircle[index].style.backgroundColor = "#41a429"
+    }
+
 </script>

@@ -20,9 +20,11 @@ public class Task{
     @Column(name = "limit_date")
     private Date limitDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "priority")
     private TaskPriority priority;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private TaskStatus status;
 
@@ -86,4 +88,16 @@ public class Task{
         this.assigned_employee = assignedEmployee;
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", limitDate=" + limitDate +
+                ", priority=" + priority +
+                ", status=" + status +
+                ", assigned_employee=" + assigned_employee.getUserName() +
+                '}';
+    }
 }
